@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS USERS (
   password VARCHAR,
   firstname VARCHAR(20),
   lastname VARCHAR(20)
+
 );
 
 CREATE TABLE IF NOT EXISTS NOTES (

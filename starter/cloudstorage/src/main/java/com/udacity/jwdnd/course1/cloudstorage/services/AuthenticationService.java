@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 
 @Service
@@ -18,6 +19,11 @@ public class AuthenticationService implements AuthenticationProvider {
     public AuthenticationService(UsersMapper userMapper, HashService hashService) {
         this.userMapper = userMapper;
         this.hashService = hashService;
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("Creating AuthenticationService bean");
     }
 
     @Override
