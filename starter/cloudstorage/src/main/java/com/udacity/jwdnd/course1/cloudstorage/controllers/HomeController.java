@@ -2,6 +2,7 @@ package com.udacity.jwdnd.course1.cloudstorage.controllers;
 
 import com.udacity.jwdnd.course1.cloudstorage.model.Credential;
 import com.udacity.jwdnd.course1.cloudstorage.model.File;
+import com.udacity.jwdnd.course1.cloudstorage.model.HomeForm;
 import com.udacity.jwdnd.course1.cloudstorage.model.Note;
 import com.udacity.jwdnd.course1.cloudstorage.services.CredentialService;
 import com.udacity.jwdnd.course1.cloudstorage.services.FileService;
@@ -32,22 +33,11 @@ public class HomeController {
         this.fileService = fileService;
     }
 
-    //Note
     @GetMapping("/home")
-    public String getData(@ModelAttribute("Note") Note note, Model model){
-        model.addAttribute("uploadNotes",this.noteService.getNotes());
-        return "home";
-    }
-
-    //Credential
-    public String getData(@ModelAttribute("Credential") Credential credential, Model model){
-        model.addAttribute("uploadCredentials",this.credentialService.getCredentials());
-        return "home";
-    }
-
-    //File
-    public String getData(@ModelAttribute("File") File file, Model model){
-        model.addAttribute("uploadFiles",this.fileService.getFiles());
+    public String getData(HomeForm homeForm, Model model){
+        model.addAttribute("uploadedCredentials",this.credentialService.getCredentials());
+        model.addAttribute("uploadedFiles",this.fileService.getFiles());
+        model.addAttribute("uploadedNotes",this.noteService.getNotes());
         return "home";
     }
 

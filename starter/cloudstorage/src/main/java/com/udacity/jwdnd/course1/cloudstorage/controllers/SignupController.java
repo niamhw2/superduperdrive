@@ -38,26 +38,26 @@ public class SignupController {
     public String signupUser(@ModelAttribute User user, Model model) {
         String signupError = null;
 
-        logger.debug("username:"+user.getUsername());
-        logger.debug("isUsernameavailable:"+userService.isUsernameAvailable(user.getUsername()));
+        logger.info("username:"+user.getUsername());
+        logger.info("isUsernameavailable:"+userService.isUsernameAvailable(user.getUsername()));
         if (!userService.isUsernameAvailable(user.getUsername())) {
             signupError = "The username already exists.";
         }
 
         if (signupError == null) {
-            logger.debug("Creating user");
+            logger.info("Creating user");
             int rowsAdded = userService.createUser(user);
-            logger.debug("rowsAdded: " + rowsAdded);
+            logger.info("rowsAdded: " + rowsAdded);
             if (rowsAdded < 0) {
                 signupError = "There was an error signing you up. Please try again.";
             }
         }
 
         if (signupError == null) {
-            logger.debug("SignupSuccess");
+            logger.info("SignupSuccess");
             model.addAttribute("signupSuccess", true);
         } else {
-            logger.debug("SignupSuccess");
+            logger.info("SignupSuccess");
             model.addAttribute("signupError", signupError);
         }
 

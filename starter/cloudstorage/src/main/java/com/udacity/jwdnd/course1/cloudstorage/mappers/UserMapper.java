@@ -1,14 +1,18 @@
 package com.udacity.jwdnd.course1.cloudstorage.mappers;
 
 import com.udacity.jwdnd.course1.cloudstorage.model.User;
+import com.udacity.jwdnd.course1.cloudstorage.services.UserService;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @Mapper
-public interface UsersMapper {
+public interface UserMapper {
+
         @Select("SELECT * FROM USERS WHERE username = #{username}")
         User getUser(String username);
 

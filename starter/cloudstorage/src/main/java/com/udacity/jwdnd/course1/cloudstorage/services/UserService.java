@@ -1,7 +1,6 @@
 package com.udacity.jwdnd.course1.cloudstorage.services;
 
-import com.udacity.jwdnd.course1.cloudstorage.controllers.SignupController;
-import com.udacity.jwdnd.course1.cloudstorage.mappers.UsersMapper;
+import com.udacity.jwdnd.course1.cloudstorage.mappers.UserMapper;
 import com.udacity.jwdnd.course1.cloudstorage.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +13,7 @@ import java.util.Base64;
 @Service
 public class UserService {
 
-    private final UsersMapper userMapper;
+    private final UserMapper userMapper;
     private final HashService hashService;
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
@@ -23,26 +22,29 @@ public class UserService {
         System.out.println("Creating UserService bean");
     }
 
-    public UserService(UsersMapper userMapper, HashService hashService) {
+    public UserService(UserMapper userMapper, HashService hashService) {
         this.userMapper = userMapper;
         this.hashService = hashService;
     }
 
     public boolean isUsernameAvailable(String username) {
-        logger.debug("returning isUserNameAvailable");
+        logger.info("returning isUserNameAvailable");
         return userMapper.getUser(username) == null;
     }
 
     public int createUser(User user) {
-        logger.debug("createUser method");
+        logger.info("createUser method");
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
         random.nextBytes(salt);
         String encodedSalt = Base64.getEncoder().encodeToString(salt);
-        logger.debug("user getPassword");
+        logger.info("user getPassword: " + user.getPassword());
         String hashedPassword = hashService.getHashedValue(user.getPassword(), encodedSalt);
-        logger.debug("Inserting User");
-        return userMapper.insertUser(new User(null,
+        logger.info("Inserting User");
+        logger.info("hashedPassword: " + hashedPassword);
+        logger.info("userName: " + user.getUsername());
+
+        return userMapper.insertUser(new User(
                 user.getUsername(), encodedSalt,
                 hashedPassword, user.getFirstname(), user.getLastname()));
     }

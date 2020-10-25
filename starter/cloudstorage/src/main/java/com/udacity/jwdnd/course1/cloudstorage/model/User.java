@@ -1,5 +1,9 @@
 package com.udacity.jwdnd.course1.cloudstorage.model;
 
+import com.udacity.jwdnd.course1.cloudstorage.services.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class User {
 
     Integer userid;
@@ -9,7 +13,10 @@ public class User {
     String firstname;
     String lastname;
 
-    public User(Integer userid, String username, String encodedSalt, String hashedPassword, String firstname, String lastname) {
+    private static final Logger logger = LoggerFactory.getLogger(User.class);
+
+    public User(String username, String encodedSalt, String hashedPassword, String firstname, String lastname) {
+        logger.info("creating user");
     }
 
     public Integer getUserid() {

@@ -25,7 +25,7 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
-                        <form th:action ="@{/result}" action="#" enctype="multipart/form-data" method="POST">
+                        <form th:object="${FileForm}" th:action ="@{/result}" action="#" enctype="multipart/form-data" method="POST">
                             <div class="container">
                                 <div class="row" style="margin: 1em;">
                                     <div class="col-sm-2">
@@ -101,7 +101,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form th:object="${Note}" th:action ="@{/result} "action="#" method="POST">
+                                        <form th:object="${NoteForm}" th:action ="@{/result} "action="#" method="POST">
                                             <input type="hidden" name="noteId" id="note-id" th:field="*{noteId}">
                                             <div class="form-group">
                                                 <label for="note-title" class="col-form-label">Title</label>
@@ -167,7 +167,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form th:object="${Credential}" th:action ="@{/result}  action="#" method="POST">
+                                        <form th:object="${CredentialForm}" th:action ="@{/result}  action="#" method="POST">
                                             <input type="hidden" name="credentialId" id="credential-id">
                                             <div class="form-group">
                                                 <label for="note-title" class="col-form-label">URL</label>
