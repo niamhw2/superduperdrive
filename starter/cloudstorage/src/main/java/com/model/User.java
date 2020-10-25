@@ -1,6 +1,5 @@
-package com.udacity.jwdnd.course1.cloudstorage.model;
+package com.model;
 
-import com.udacity.jwdnd.course1.cloudstorage.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

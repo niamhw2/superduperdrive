@@ -1,4 +1,4 @@
-package com.udacity.jwdnd.course1.cloudstorage.model;
+package com.model;
 
 public class HomeForm {
     private FileForm fileForm;

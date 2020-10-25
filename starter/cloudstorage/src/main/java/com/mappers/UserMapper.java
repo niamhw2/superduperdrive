@@ -1,13 +1,10 @@
-package com.udacity.jwdnd.course1.cloudstorage.mappers;
+package com.mappers;
 
-import com.udacity.jwdnd.course1.cloudstorage.model.User;
-import com.udacity.jwdnd.course1.cloudstorage.services.UserService;
+import com.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @Mapper

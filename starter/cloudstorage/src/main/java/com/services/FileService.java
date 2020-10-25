@@ -1,10 +1,7 @@
-package com.udacity.jwdnd.course1.cloudstorage.services;
+package com.services;
 
-import com.udacity.jwdnd.course1.cloudstorage.mappers.CredentialMapper;
-import com.udacity.jwdnd.course1.cloudstorage.mappers.FileMapper;
-import com.udacity.jwdnd.course1.cloudstorage.model.Credential;
-import com.udacity.jwdnd.course1.cloudstorage.model.File;
-import com.udacity.jwdnd.course1.cloudstorage.model.Note;
+import com.mappers.FileMapper;
+import com.model.File;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

@@ -1,6 +1,4 @@
-package com.udacity.jwdnd.course1.cloudstorage.model;
-
-import java.sql.Blob;
+package com.model;
 
 public class FileForm {
 
